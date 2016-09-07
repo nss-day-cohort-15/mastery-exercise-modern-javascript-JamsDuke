@@ -26,14 +26,14 @@ Hangar.LightMech = () => {
 };
 Hangar.LightMech.prototype = new Hangar.Mech();
 
-Hangar.Locust = function () {
+Hangar.Locust = () => {
   this.setAttack.call(this, 125);
   this.setHealth.call(this, 550);
   this.weapon = "Short Range Missiles";
 };
 Hangar.Locust.prototype = new Hangar.LightMech();
 
-Hangar.Raven = function () {
+Hangar.Raven = () => {
   this.setAttack.call(this, 150);
   this.setHealth.call(this, 500);
   this.weapon = "Flamer";
@@ -41,19 +41,19 @@ Hangar.Raven = function () {
 Hangar.Raven.prototype = new Hangar.LightMech();
 
 // Medium Mechs
-Hangar.MediumMech = function () {
+Hangar.MediumMech = () => {
   this.class = "Brawler";
 };
 Hangar.MediumMech.prototype = new Hangar.Mech();
 
-Hangar.Centurion = function () {
+Hangar.Centurion = () => {
   this.setAttack.call(this, 250);
   this.setHealth.call(this, 750);
   this.weapon = "Auto Cannon";
 };
 Hangar.Centurion.prototype = new Hangar.MediumMech();
 
-Hangar.Shadowhawk = function () {
+Hangar.Shadowhawk = () => {
   this.setAttack.call(this, 175);
   this.setHealth.call(this, 700);
   this.weapon = "Pulse Laser";
@@ -61,19 +61,19 @@ Hangar.Shadowhawk = function () {
 Hangar.Shadowhawk.prototype = new Hangar.MediumMech();
 
 // Heavy Mechs
-Hangar.HeavyMech = function () {
+Hangar.HeavyMech = () => {
   this.class = "Executor";
 };
 Hangar.HeavyMech.prototype = new Hangar.Mech();
 
-Hangar.Warhammer = function () {
+Hangar.Warhammer = () => {
   this.setAttack.call(this, 200);
   this.setHealth.call(this, 1000);
   this.weapon = "Particle Cannon";
 };
 Hangar.Warhammer.prototype = new Hangar.HeavyMech();
 
-Hangar.Marauder = function () {
+Hangar.Marauder = () => {
   this.setAttack.call(this, 175);
   this.setHealth.call(this, 900);
   this.weapon = "Gauss Rifle";
@@ -104,7 +104,7 @@ function generatePlayerTwo () {
   playerTwo.name = playerTwoName;
   console.log("New Player", playerTwo);
 }
-// Display robot information to the DOM
+// Display player information to the DOM
 function displayOutput () {
   $("#mechOneOutput").html(`
       <section class="statCard">
