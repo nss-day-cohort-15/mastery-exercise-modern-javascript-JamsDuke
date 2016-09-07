@@ -21,19 +21,19 @@ Hangar.Mech.prototype.setHealth = function (num) {this.health = num;};
 Hangar.Mech.prototype.dealDamage = function (target) {target.health -= this.attack;};
 // Display robots and their variations
 // Light Mechs
-Hangar.LightMech = () => {
+Hangar.LightMech = function () {
   this.class = "Scout";
 };
 Hangar.LightMech.prototype = new Hangar.Mech();
 
-Hangar.Locust = () => {
+Hangar.Locust = function () {
   this.setAttack.call(this, 125);
   this.setHealth.call(this, 550);
   this.weapon = "Short Range Missiles";
 };
 Hangar.Locust.prototype = new Hangar.LightMech();
 
-Hangar.Raven = () => {
+Hangar.Raven = function () {
   this.setAttack.call(this, 150);
   this.setHealth.call(this, 500);
   this.weapon = "Flamer";
@@ -41,19 +41,19 @@ Hangar.Raven = () => {
 Hangar.Raven.prototype = new Hangar.LightMech();
 
 // Medium Mechs
-Hangar.MediumMech = () => {
+Hangar.MediumMech = function () {
   this.class = "Brawler";
 };
 Hangar.MediumMech.prototype = new Hangar.Mech();
 
-Hangar.Centurion = () => {
+Hangar.Centurion = function () {
   this.setAttack.call(this, 250);
   this.setHealth.call(this, 750);
   this.weapon = "Auto Cannon";
 };
 Hangar.Centurion.prototype = new Hangar.MediumMech();
 
-Hangar.Shadowhawk = () => {
+Hangar.Shadowhawk = function () {
   this.setAttack.call(this, 175);
   this.setHealth.call(this, 700);
   this.weapon = "Pulse Laser";
@@ -61,19 +61,19 @@ Hangar.Shadowhawk = () => {
 Hangar.Shadowhawk.prototype = new Hangar.MediumMech();
 
 // Heavy Mechs
-Hangar.HeavyMech = () => {
+Hangar.HeavyMech = function () {
   this.class = "Executor";
 };
 Hangar.HeavyMech.prototype = new Hangar.Mech();
 
-Hangar.Warhammer = () => {
+Hangar.Warhammer = function () {
   this.setAttack.call(this, 200);
   this.setHealth.call(this, 1000);
   this.weapon = "Particle Cannon";
 };
 Hangar.Warhammer.prototype = new Hangar.HeavyMech();
 
-Hangar.Marauder = () => {
+Hangar.Marauder = function () {
   this.setAttack.call(this, 175);
   this.setHealth.call(this, 900);
   this.weapon = "Gauss Rifle";
@@ -104,7 +104,7 @@ function generatePlayerTwo () {
   playerTwo.name = playerTwoName;
   console.log("New Player", playerTwo);
 }
-// Display player information to the DOM
+// Display robot information to the DOM
 function displayOutput () {
   $("#mechOneOutput").html(`
       <section class="statCard">
