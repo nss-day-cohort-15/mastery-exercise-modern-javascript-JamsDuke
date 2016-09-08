@@ -47,7 +47,7 @@ Hangar.MediumMech = function () {
 Hangar.MediumMech.prototype = new Hangar.Mech();
 
 Hangar.Centurion = function () {
-  this.setAttack.call(this, 250);
+  this.setAttack.call(this, 200);
   this.setHealth.call(this, 750);
   this.weapon = "Auto Cannon";
 };
