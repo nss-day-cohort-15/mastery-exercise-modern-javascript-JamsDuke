@@ -1,7 +1,7 @@
 "use strict";
 // Im using mechs instead of robots, just FYI
 var Battledome = function (battledome) {
-
+// Player variables
 let playerOneName = null;
 let playerTwoName = null;
 let playerOneMechSelect = null;
@@ -88,7 +88,7 @@ function beginBattle () {
 }
 // Make Player One
 function generatePlayerOne () {
-  console.log("generatePlayerOne running");
+  console.log("generatePlayerOne is ready to battle!");
   let playerOneName = $("#playerOneName").val();
   let playerOneMechSelect = $("#playerOneSelect option:selected").val();
   playerOne = new Hangar[playerOneMechSelect]();
@@ -97,7 +97,7 @@ function generatePlayerOne () {
 }
 // Make Player Two
 function generatePlayerTwo () {
-  console.log("generatePlayerTwo running");
+  console.log("generatePlayerTwo is ready to battle!");
   let playerTwoName = $("#playerTwoName").val();
   let playerTwoMechSelect = $("#playerTwoSelect option:selected").val();
   playerTwo = new Hangar[playerTwoMechSelect]();
