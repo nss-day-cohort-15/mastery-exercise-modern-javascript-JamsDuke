@@ -8,10 +8,32 @@ let playerOneMechSelect = null;
 let playerTwoMechSelect = null;
 let playerOne = null;
 let playerTwo = null;
-
+// Make Player One
+function generatePlayerOne () {
+  console.log("generatePlayerOne is ready to battle!");
+  let playerOneName = $("#playerOneName").val();
+  let playerOneMechSelect = $("#playerOneSelect option:selected").val();
+  playerOne = new Hangar[playerOneMechSelect]();
+  playerOne.name = playerOneName;
+  console.log("New Player", playerOne);
+}
+// Make Player Two
+function generatePlayerTwo () {
+  console.log("generatePlayerTwo is ready to battle!");
+  let playerTwoName = $("#playerTwoName").val();
+  let playerTwoMechSelect = $("#playerTwoSelect option:selected").val();
+  playerTwo = new Hangar[playerTwoMechSelect]();
+  playerTwo.name = playerTwoName;
+  console.log("New Player", playerTwo);
+}
+// Get functions needed for battle
+function beginBattle () {
+  generatePlayerOne();
+  generatePlayerTwo();
+  displayOutput();
+}
+// Empty object for the mechs to live, much like Guildhall in Gauntlet
 let Hangar = {};
-// Attack button
-let attackButton = `<button id="attackButton">ATTACK!</button>`;
 // Base Robot Function
 Hangar.Mech = function() {
   this.origin = "Mechwarrior";
@@ -80,30 +102,8 @@ Hangar.Marauder = function () {
 };
 Hangar.Marauder.prototype = new Hangar.HeavyMech();
 
-// Get functions needed for battle
-function beginBattle () {
-  generatePlayerOne();
-  generatePlayerTwo();
-  displayOutput();
-}
-// Make Player One
-function generatePlayerOne () {
-  console.log("generatePlayerOne is ready to battle!");
-  let playerOneName = $("#playerOneName").val();
-  let playerOneMechSelect = $("#playerOneSelect option:selected").val();
-  playerOne = new Hangar[playerOneMechSelect]();
-  playerOne.name = playerOneName;
-  console.log("New Player", playerOne);
-}
-// Make Player Two
-function generatePlayerTwo () {
-  console.log("generatePlayerTwo is ready to battle!");
-  let playerTwoName = $("#playerTwoName").val();
-  let playerTwoMechSelect = $("#playerTwoSelect option:selected").val();
-  playerTwo = new Hangar[playerTwoMechSelect]();
-  playerTwo.name = playerTwoName;
-  console.log("New Player", playerTwo);
-}
+// Attack button
+let attackButton = `<button id="attackButton">ATTACK!</button>`;
 // Display robot information to the DOM
 function displayOutput () {
   $("#mechOneOutput").html(`
@@ -148,8 +148,6 @@ function mechAttack () {
   displayOutput();
   resolveDamage();
 }
-
-
 // This button starts the battle
 $("#readyBtn").on("click", beginBattle);
 
